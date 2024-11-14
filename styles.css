@@ -1,67 +1,195 @@
+/* styles.css */
+
+/* Reset de márgenes y paddings */
 * {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* styles.css */
+
+/* Estilo global */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #f4f4f4;
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  padding: 20px;
+  overflow: hidden;
 }
 
-#game-container {
+.game-container {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 h1 {
-  font-size: 24px;
+  color: #007bff;
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-#equation {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-#input-coefficients {
-  margin-bottom: 20px;
-}
-
-input {
-  width: 60px;
-  padding: 5px;
-  margin: 5px;
-  font-size: 16px;
-}
-
+/* Formato de los botones */
 button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+  width: 100%;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-#feedback {
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Contenedor de la ecuación y los campos de entrada */
+#equation-container {
   margin-top: 20px;
 }
 
-#message {
-  font-size: 18px;
+#equation {
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #333;
+}
+
+#input-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+input {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+/* Estilo del resultado */
+#result {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #28a745; /* Verde si es correcto */
+}
+
+/* Modal de instrucciones */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.close-btn:hover {
+  color: #0056b3;
+}
+
+/* Estilo para la animación de la apertura del modal */
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  input {
+    width: 40px;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  input {
+    width: 35px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 7px 12px;
+  }
 }

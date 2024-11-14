@@ -1,55 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balanceo de Ecuaciones Químicas</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
   </head>
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Juego de Balanceo de Ecuaciones Químicas</title>
-      <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-      <div id="game-container">
-        <h1>Juego de Balanceo de Ecuaciones Químicas</h1>
+  <body>
+    <div class="game-container">
+      <h1>Balanceo de Ecuaciones Químicas</h1>
+      <label for="difficulty">Selecciona la dificultad:</label>
+      <select id="difficulty">
+        <option value="easy">Fácil</option>
+        <option value="medium">Medio</option>
+        <option value="hard">Difícil</option>
+      </select>
+      <button id="startBtn">Empezar</button>
 
-        <!-- Ecuación no balanceada -->
-        <div id="equation">
-          <span id="left-side">H₂ + O₂</span>
-          <span>=</span>
-          <span id="right-side">H₂O</span>
-        </div>
-
-        <!-- Formulario para ingresar coeficientes -->
-        <div id="input-coefficients">
-          <label for="coefficient-left">Coeficiente izquierdo:</label>
-          <input type="number" id="coefficient-left" value="1" />
-
-          <label for="coefficient-right">Coeficiente derecho:</label>
-          <input type="number" id="coefficient-right" value="1" />
-        </div>
-
-        <!-- Botón para verificar -->
-        <button id="check-button">Verificar</button>
-
-        <!-- Mensajes de retroalimentación -->
-        <div id="feedback">
-          <p id="message"></p>
-        </div>
+      <div id="equation-container">
+        <p id="equation"></p>
+        <div id="input-fields"></div>
       </div>
 
-      <script src="script.js"></script>
-    </body>
-  </html>
+      <button id="checkAnswerBtn">Verificar Respuesta</button>
+      <button id="nextEquationBtn">Siguiente Ecuación</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="instructions-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Instrucciones</h2>
+        <p>
+          Balancea las ecuaciones químicas ajustando los coeficientes de los
+          reactivos y productos.
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
